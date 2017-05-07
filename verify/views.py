@@ -8,17 +8,22 @@ def index(request):
 
 def verify(request):
     print("verify")
-    phoneNumber = request.POST['phonenumber']
-    randomNumber = str(random.randint(1, 1000))
-    verificationCode = getVerificationCode(phoneNumber, randomNumber)
+    # if the form wasn't submitted properly, then go to index page
+    try:
+        phoneNumber = request.POST['phonenumber']
+    except:
+        return render(request, "verify/sms.html")
 
+    verificationCode = getVerificationCode(phoneNumber)
+
+    # send the sms to the user with the verification code
     sendVerificationCode(verificationCode)
 
-    return render(request, "verify/verification.html", {"phone": phoneNumber, "random": randomNumber})
+    return render(request, "verify/verification.html", {"phone": phoneNumber})
 
 
-def getVerificationCode(phoneNumber, randomNumber):
-    return(hashlib.sha512((phoneNumber+randomNumber+str(os.environ.get("SEED"))).encode("utf-8")).hexdigest()[:5])
+def getVerificationCode(phoneNumber):
+    return(hashlib.sha512((phoneNumber+str(os.environ.get("SEED"))).encode("utf-8")).hexdigest()[:5])
 
 def sendVerificationCode(verificationCode):
     print("Verification Code: ", verificationCode)
