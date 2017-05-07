@@ -25,6 +25,20 @@ html, body {
     letter-spacing: -0.16px;
 }
 
+#phoneBlock{
+
+}
+
+#phoneBar{
+    width: 100%;
+}
+#phoneBarTitle{
+
+}
+#phoneField{
+    width: 100%;
+}
+
 @media only screen and (max-width: 500px) {
     #backplate {
         margin-left: 5px;
