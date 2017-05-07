@@ -20,16 +20,20 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "9qy%+*lc@km*wn91)3u4)8elyh(xvs_#4=8yy_ao7d4)zdlbw1"
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+# SECURITY WARNING: keep the secret key used in production secret!
+
+if DEBUG:
+    SECRET_KEY = "9qy%+*lc@km*wn91)3u4)8elyh(xvs_#4=8yy_ao7d4)zdlbw1"
+else:
+    SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # Application definition
 
 INSTALLED_APPS = [
-    'verify',    
+    'verify',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
