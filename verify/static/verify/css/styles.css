@@ -24,19 +24,32 @@ html, body {
     color: #463C70;
     letter-spacing: -0.16px;
 }
-
 #phoneBlock{
+    margin-top: 15vh;
+}
 
+#phoneBarTitle{
+    position: absolute;
+    font-family: "BG";
+    font-weight: 700;
+    font-size: 1.9em;
+    color: #463C70;
+    margin-top: 5px;
 }
 
 #phoneBar{
     width: 100%;
 }
-#phoneBarTitle{
 
-}
-#phoneField{
+#phoneInput{
     width: 100%;
+    height: 100px;
+    font-family: "BG";
+    font-weight: 300;
+    font-size: 1.5em;
+    color: #463C70;
+    background-color: #F7F3FF;
+    border: 0;
 }
 
 @media only screen and (max-width: 500px) {
