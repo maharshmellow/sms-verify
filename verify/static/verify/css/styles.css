@@ -1,0 +1,38 @@
+html, body {
+    position: relative;
+    height: 100%;
+    background-image: linear-gradient(200deg, #918E9F 0%, #463C70 100%);
+    overflow-y: hidden;
+}
+
+#backplate {
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 50px;
+    background: #FFFFFF;
+    box-shadow: -15px 46px 56px 15px rgba(0, 0, 0, 0.50);
+    border-radius: 4px;
+    overflow-x: hidden;
+}
+
+#maintitle {
+    font-family: "BG";
+    font-weight: 700;
+    font-size: 20px;
+    padding-top: 40px;
+    color: #463C70;
+    letter-spacing: -0.16px;
+}
+
+@media only screen and (max-width: 500px) {
+    #backplate {
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        background: #FFFFFF;
+        box-shadow: -15px 46px 56px 15px rgba(0, 0, 0, 0.50);
+        border-radius: 4px;
+    }
+}
