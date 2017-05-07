@@ -28,7 +28,7 @@
 			<div id="phoneBlock" class="col-lg-4 col-md-6 col-sm-8">
 				<span id="phoneBarTitle"> Enter Phone Number </span><br>
 				<h1 id="phoneBar">
-					<input id="phoneInput" type="text"></input>
+					<input id="phoneInput" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="text"></input>
 				</h1>
 			</div>
 			<div class="col-lg-4 col-md-3 col-sm-2"></div>

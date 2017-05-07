@@ -29,25 +29,17 @@
 			<div id="phoneBlock" class="col-lg-4 col-md-6 col-sm-8">
 				<span id="phoneBarTitle"> Enter Verification Code </span><br>
 				<h1 id="phoneBar">
-					<input id="phoneInput" type="text"></input>
+					<input id="phoneInput" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="text"></input>
 				</h1>
 			</div>
 			<div class="col-lg-4 col-md-3 col-sm-2"></div>
+		</div>
+		<div class="row text-center">
+			<span id="message"></span>
 		</div>
 	</div>
 </body>
 
 <script src="{% static 'verify/js/scripts.js' %}"></script>
-
-<script>
-// $("body").animate({
-// 	backgroundColor: "#f5003c"
-// }, 1500);
-//
-// $("body").animate({
-// 	backgroundColor: "#20FFAD"
-// }, 1500);
-
-</script>
 
 </html>
