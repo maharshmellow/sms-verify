@@ -43,47 +43,44 @@
 
 
 <script>
-
-// back plate sizing
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-	$('#backplate').height($(window).height() - 10);
-} else {
-	$('#backplate').height($(window).height() - 100);
-}
-
-
-$("#phoneInput").keyup(function(e) {
-	if (e.keyCode == 13) {
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-			if (xhttp.readyState == 4 && xhttp.status == 200) {
-				var response = xhttp.responseText;
-				console.log(response);
-
-				if(response == "1"){
-					$("body").animate({
-						backgroundColor: "#20FFAD"
-					}, 500);
-
-					$("#message").css("color", "#20FFAD");
-					document.getElementById("message").innerHTML = "Verification Successful";
-				}
-				else{
-					$("body").animate({
-						backgroundColor: "#f5003c"
-					}, 500);
-					$("#message").css("color", "#f5003c");
-					document.getElementById("message").innerHTML = "Verification Failed";
-				}
-				document.getElementById('phoneInput').readOnly = true;
-			}
-		};
-		xhttp.open("GET", "/checkCode?code={{code}}&verification=" + document.getElementById("phoneInput").value, true);
-		xhttp.send();
+	// back plate sizing
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		$('#backplate').height($(window).height() - 10);
+	} else {
+		$('#backplate').height($(window).height() - 100);
 	}
-});
 
 
+	$("#phoneInput").keyup(function(e) {
+		if (e.keyCode == 13) {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (xhttp.readyState == 4 && xhttp.status == 200) {
+					var response = xhttp.responseText;
+					console.log(response);
 
+					if (response == "1") {
+						$("body").animate({
+							backgroundColor: "#20FFAD"
+						}, 500);
+
+						$("#message").css("color", "#20FFAD");
+						document.getElementById("message").innerHTML = "Verification Successful";
+					} else {
+						$("body").animate({
+							backgroundColor: "#f5003c"
+						}, 500);
+
+						$("#message").css("color", "#f5003c");
+						document.getElementById("message").innerHTML = "Verification Failed";
+					}
+					document.getElementById('phoneInput').readOnly = true;
+				}
+			};
+			xhttp.open("GET", "/checkCode?code={{code}}&verification=" + document.getElementById("phoneInput").value, true);
+			xhttp.send();
+		}
+	});
 </script>
+
 </html>

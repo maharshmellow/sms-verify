@@ -41,21 +41,20 @@
 </body>
 
 <script>
-// back plate sizing
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-	$('#backplate').height($(window).height() - 10);
-} else {
-	$('#backplate').height($(window).height() - 100);
-}
+	// back plate sizing
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		$('#backplate').height($(window).height() - 10);
+	} else {
+		$('#backplate').height($(window).height() - 100);
+	}
 
-// submit form when enter key is pressed
-$("#phoneInput").keypress(function(event) {
-    if (event.which == 13) {
-        event.preventDefault();
-        $("form").submit();
-    }
-});
-
-
+	// submit form when enter key is pressed
+	$("#phoneInput").keypress(function(event) {
+		if (event.which == 13) {
+			event.preventDefault();
+			$("form").submit();
+		}
+	});
 </script>
+
 </html>
