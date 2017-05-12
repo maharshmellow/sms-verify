@@ -17,12 +17,11 @@ def verify(request):
     except:
         return render(request, "verify/sms.html")
 
-    # sent to the user - what the user has to type in
-    verificationCode = hashlib.sha512((phoneNumber+str(random.randint(1,1000))+str(os.environ.get("SEED"))).encode("utf-8")).hexdigest()[:5]
-    # sent to next page for the get request instead of phone number
-    # verificationCode that the user types in will be hashed and checked against the checkSequence
-    checkSequence = hashlib.sha512((verificationCode+str(os.environ.get("SEED"))).encode("utf-8")).hexdigest()[:100]
-    # send the sms to the user with the verification code
+    verificationCode = str(random.randint(1000000, 9999999))
+
+    # the check sequence is sent to the next page to verify if the code entered is correct
+    checkSequence = hashlib.sha1((verificationCode+str(os.environ.get("SEED"))).encode("utf-8")).hexdigest()
+
     sendVerificationCode(phoneNumber, verificationCode)
     return render(request, "verify/verification.html", {"code": checkSequence})
 
@@ -35,7 +34,7 @@ def checkCode(request):
         return render(request, "verify/sms.html")
 
     # check the correct check sequence against the check sequence based on the verification code provided
-    checkSequence = hashlib.sha512((verificationCode+str(os.environ.get("SEED"))).encode("utf-8")).hexdigest()[:100]
+    checkSequence = hashlib.sha1((verificationCode+str(os.environ.get("SEED"))).encode("utf-8")).hexdigest()
     if checkSequence == correctCheckSequence:
         return HttpResponse("1")
     else:
@@ -48,5 +47,3 @@ def sendVerificationCode(phoneNumber, verificationCode):
 
     TILL_URL = os.environ.get("TILL_URL")
     requests.post(TILL_URL, json={"phone":[phoneNumber], "text": "Verication code: " + str(verificationCode)})
-
-    print("Verification Code: ", verificationCode)
