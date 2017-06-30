@@ -4,7 +4,7 @@
 ```diff
 - put the country code and the area code for it to work properly (ex: `1XXXXXXX` for a Canadian / US number) 
 - the SMS API has a limit of 100 messages per month so it will not work if the limit has been reached
-- since the app is running on a limited VPS with many other apps so it may be slow
+- since the app is running on a limited VPS with many other apps, it may be slow
 ```
 
 ### Demo: https://sms-verify.maharsh.net
