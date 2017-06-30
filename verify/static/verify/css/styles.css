@@ -50,6 +50,7 @@ html, body {
     color: #463C70;
     background-color: #F7F3FF;
     border: 0;
+    outline: none !important;
 }
 
 #message{
