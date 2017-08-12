@@ -1,4 +1,6 @@
-# SMS-Verify
+### [Demo](https://sms.maharsh.net)
+
+---
 
 #### Things to know
 ```diff
@@ -7,7 +9,6 @@
 - since the app is running on a limited VPS with many other apps, it may be slow
 ```
 
-### Demo: https://sms-verify.maharsh.net
 #### Main Screen
 <img width="1304" alt="screen shot 2017-06-29 at 10 37 52 pm" src="https://user-images.githubusercontent.com/4590693/27721201-17e25fee-5d1c-11e7-9e5c-494640ec9468.png">
 #### Verification Failed
